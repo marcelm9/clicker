@@ -18,7 +18,7 @@ class Database:
 
     def get_all_names():
         path = os.path.join(os.path.dirname(__file__), "files")
-        return os.listdir(path)
+        return [p for p in os.listdir(path) if p.endswith(".txt")]
 
     def delete(name):
         os.remove(get_path(name))

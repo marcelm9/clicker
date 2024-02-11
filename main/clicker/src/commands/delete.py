@@ -15,6 +15,7 @@ def delete(args):
 
     if name + ".txt" not in Database.get_all_names():
         Log.error(f"No file with name '{name}' found in database")
+        exit(1)
 
     Database.delete(args[0])
     Log.info(f"Deleted file '{args[0]}'")

@@ -43,3 +43,4 @@ match args.command:
         repeat(args.args)
     case _:
         Log.error("unknown command")
+        exit(1)

@@ -33,6 +33,7 @@ def repeat(args):
         exit(1)
     if count < 0:
         Log.error("<wait> needs to be higher or equal to 0")
+        exit(1)
 
     Log.info(f"Starting repeat for file '{name}' {count} time(s) with wait of {wait} seconds")
     play([name])
