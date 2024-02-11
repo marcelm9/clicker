@@ -44,6 +44,7 @@ def repeat(args):
     thread.start()
 
     Log.info(f"Starting repeat for file '{name}' {count} time(s) with wait of {wait} seconds")
+    start_time = time.time()
     play([name])
     for _ in range(count - 1):
         if not thread.is_alive():
@@ -56,4 +57,5 @@ def repeat(args):
             exit(1)
         play([name])
 
-    Log.info("Repeat finished")
+    dt = round(time.time() - start_time, 1)
+    Log.info(f"Repeat finished in {dt} seconds")
