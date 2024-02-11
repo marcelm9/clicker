@@ -1,6 +1,7 @@
 from sys import exit
 from pynput.mouse import Listener
 from pynput import mouse
+from pynput import keyboard
 from ..database.database import Database
 from ..log import Log
 import time
@@ -27,11 +28,10 @@ def on_click(x, y, button, pressed):
         time_ = time.time()
     else:
         time_ = t
-    
+
     now = time.time()
     passed = now - time_
     t = now
-
 
     Database.save_click_to(name, x, y, passed)
     Log.info(f"Saved click ({x}, {y}, {passed}) to '{name}'")
@@ -41,7 +41,7 @@ def record(args):
 
     if len(args) != 1:
         synopsis()
-    
+
     name = args[0]
 
     if name + ".txt" in Database.get_all_names():

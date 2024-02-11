@@ -42,5 +42,5 @@ match args.command:
     case "repeat":
         repeat(args.args)
     case _:
-        Log.error("unknown command")
+        Log.error(f"Unknown command '{args.command}'")
         exit(1)

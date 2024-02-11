@@ -1,8 +1,13 @@
 from .play import play
 from ..log import Log
 from ..database.database import Database
+from pynput import keyboard
 from sys import exit
 import time
+
+def on_press(key):
+    if key == keyboard.Key.esc:
+        return False
 
 def synopsis():
     Log.info("SYNOPSIS:")
@@ -35,12 +40,20 @@ def repeat(args):
         Log.error("<wait> needs to be higher or equal to 0")
         exit(1)
 
+    thread = keyboard.Listener(on_press=on_press)
+    thread.start()
+
     Log.info(f"Starting repeat for file '{name}' {count} time(s) with wait of {wait} seconds")
     play([name])
     for _ in range(count - 1):
+        if not thread.is_alive():
+            exit(1)
         if wait > 0:
             Log.info(f"Waiting for {wait} seconds")
             time.sleep(wait)
+        if not thread.is_alive():
+            Log.info("Interrupted")
+            exit(1)
         play([name])
 
     Log.info("Repeat finished")
