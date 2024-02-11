@@ -2,7 +2,8 @@ __pycache__
 docs
 .vscode
 .idea
-files/*.txt
+main/clicker/src/database/files/*.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
