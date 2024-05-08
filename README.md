@@ -1,6 +1,13 @@
 # clicker
 Tool for recording and replaying mouse clicks.
 
+### installation
+```bash
+git clone https://github.com/marcelm9/clicker.git
+cd clicker
+pip install .
+```
+
 ### commands
 ```bash
 # display all commands
