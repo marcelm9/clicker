@@ -13,3 +13,6 @@ def help(args):
     Log.info(" - record")
     Log.info(" - rename")
     Log.info(" - delete")
+    Log.info(" - show")
+    Log.info(" - clear")
+    Log.info(" - repeat")

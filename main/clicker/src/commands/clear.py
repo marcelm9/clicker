@@ -16,7 +16,7 @@ def clear(args):
         exit(0)
 
     count = 3
-    while count > 0 and (ans := Log.ask("Are you sure? \[y/n] ")).lower() not in ["y", "n"]:
+    while count > 0 and (ans := Log.ask("Are you sure you want to clear the database? \[y/n] ")).lower() not in ["y", "n"]:
         count -= 1
 
     if count == 0:
